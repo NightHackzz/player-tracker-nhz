@@ -4,8 +4,8 @@
 // @category       Layer
 // @version        0.11.1.20170210.ja.nhz.0955
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      http://nighthackz.azurewebsites.net/IITC/player-tracker-ja-nhz.user.js
-// @downloadURL    http://nighthackz.azurewebsites.net/IITC/player-tracker-ja-nhz.user.js
+// @updateURL      https://github.com/NightHackzz/player-tracker-nhz.git/player-tracker-nhz.user.jp
+// @downloadURL    https://github.com/NightHackzz/player-tracker-nhz.git/player-tracker-nhz.user.jp
 // @description    [iitc-ja-nhz-2017-02-10] PlayerTracker(nhz) トレース色、追跡、履歴時間指定版.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
