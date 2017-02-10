@@ -1,4 +1,4 @@
-# AG追跡変更版(player-tracker-ja-nhz)
+# Player Tracker (night hackz)変更版(player-tracker-ja-nhz)
 
 ##はじめに
 これは、[IITC-ja: Ingress Intel Total Conversion 日本語化版](https://ingress.love/iitc-ja/)を元に以下の修正を行っているプラグインです。 <br> 
