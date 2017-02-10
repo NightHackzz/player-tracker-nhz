@@ -23,4 +23,7 @@
 ## ライセンス
 本スクリプトのライセンスは、[ISC Licence](https://www.isc.org/downloads/software-support-policy/isc-license/)とさせて頂きます。
 
-## 
+## 設定画面
+「Player足跡」のメニューがツールボックスに追加されますので、それを選択して下さい。<br>
+この画面が表示されますので、選択して「OK」ボタンを押して下さい。
+![オプション](fig-option.png)
