@@ -1,16 +1,16 @@
 # AG追跡変更版(player-tracker-ja-nhz)
 
 ##はじめに
-これは、[IITC-ja: Ingress Intel Total Conversion 日本語化版](https://ingress.love/iitc-ja/)を元に以下の修正を行っているプラグインです。  
+これは、[IITC-ja: Ingress Intel Total Conversion 日本語化版](https://ingress.love/iitc-ja/)を元に以下の修正を行っているプラグインです。 <br> 
 - AGのトレース破線色をRES/ENLで色分け
 - AGの追跡時間を3,6,12,24時間と指定可能にした
 - AGの履歴詳細画面の履歴数を指定可能にした
 
 ## インストール
-[Plugin Download](https://github.com/NightHackzz/player-tracker-nhz/raw/master/player-tracker-ja-nhz.user.js) 
+[Plugin Download](https://github.com/NightHackzz/player-tracker-nhz/raw/master/player-tracker-ja-nhz.user.js) <br>
 
-あらかじめ、標準の「Plaert tracker」はOFFに設定してください。
-上記「Plugin Download」リンクを選択し、開いた画面で「インストール」ボタンを押してください。
+あらかじめ、標準の「Plaert tracker」はOFFに設定してください。<br>
+上記「Plugin Download」リンクを選択し、開いた画面で「インストール」ボタンを押してください。<br>
 
 
 ## 注意事項
