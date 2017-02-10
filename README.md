@@ -10,7 +10,7 @@
 [Plugin Download](https://github.com/NightHackzz/player-tracker-nhz/raw/master/player-tracker-ja-nhz.user.js) <br>
 
 - あらかじめ、標準の「Plaert tracker」はOFFに設定してください。<br>
-!(fig1.png)
+![設定画面](fig1.png)<br>
 - 上記「Plugin Download」リンクを選択し、開いた画面で「インストール」ボタンを押してください。<br>
 
 
