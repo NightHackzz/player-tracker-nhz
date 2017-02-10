@@ -2,11 +2,11 @@
 // @id             iitc-plugin-player-tracker-nhz@ja
 // @name           IITC-ja Plugin: Player Tracker(nhz)
 // @category       Layer
-// @version        0.11.1.20170210.ja.nhz.0955
+// @version        0.11.1.20170211.ja.nhz.0001
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      https://github.com/NightHackzz/player-tracker-nhz.git/player-tracker-nhz.user.jp
-// @downloadURL    https://github.com/NightHackzz/player-tracker-nhz.git/player-tracker-nhz.user.jp
-// @description    [iitc-ja-nhz-2017-02-10] PlayerTracker(nhz) トレース色、追跡、履歴時間指定版.
+// @updateURL      https://github.com/NightHackzz/player-tracker-nhz/raw/master/player-tracker-ja-nhz.user.js
+// @downloadURL    https://github.com/NightHackzz/player-tracker-nhz/raw/master/player-tracker-ja-nhz.user.js
+// @description    [2017-02-11.0001] PlayerTracker(nhz) トレース色、追跡、履歴時間指定版.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -25,7 +25,7 @@ function wrapper(plugin_info) {
     //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
     //(leaving them in place might break the 'About IITC' page or break update checks)
     plugin_info.buildName = 'iitc-ja-nhz';
-    plugin_info.dateTimeVersion = '20170210.0955';
+    plugin_info.dateTimeVersion = '20170211.0001';
     plugin_info.pluginId = 'player-tracker-ja-nhz';
     //END PLUGIN AUTHORS NOTE
 
@@ -35,10 +35,9 @@ function wrapper(plugin_info) {
     window.PLAYER_TRACKER_MAX_TIME = 60*60*1000; // in milliseconds
     window.PLAYER_TRACKER_MIN_ZOOM = 9;
     window.PLAYER_TRACKER_MIN_OPACITY = 0.3;
-    window.PLAYER_TRACKER_LINE_COLOUR = '#FF00FD';
     window.PLAYER_TRACKER_LINE_COLOUR_ENL = '#ff0080';
     window.PLAYER_TRACKER_LINE_COLOUR_RES = '#0000ff';
-    
+
     var PLAYER_TRACKER_NHZ_STORAGE_KEY = 'player-tracer-nhz-option';
     // オプション値
     var OptionData = { };
@@ -87,12 +86,12 @@ function wrapper(plugin_info) {
         window.plugin.playerTracker.loadOption();
 
         //---- PANEL
-//        if (window.useAndroidPanes()) {
-            //android.addPane('plugin-player-tracker-nhz', 'PlayerTrackerNhz', 'ic_action_paste');
-            //addHook('paneChanged', window.plugin.playerTracker.onPaneChanged);
-//        } else {
-            $('#toolbox').append('<a onclick="window.plugin.playerTracker.playerTrackerDialog();return false;" title="Player Tracker設定">Player足跡</a>');
-//        }
+        //if (window.useAndroidPanes()) {
+        //    android.addPane('plugin-player-tracker-nhz', 'Player足跡', 'ic_action_user');
+        //    addHook('paneChanged', window.plugin.playerTracker.onPaneChanged);
+        //} else {
+            $('#toolbox').append('<a onclick="window.plugin.playerTracker.playerTrackerDialog();return false;">Player足跡</a>');
+        //}
 
         addHook('publicChatDataAvailable', window.plugin.playerTracker.handleData);
 
@@ -102,10 +101,19 @@ function wrapper(plugin_info) {
         window.plugin.playerTracker.zoomListener();
 
         plugin.playerTracker.setupUserSearch();
+        
+		//cssData = "#playerTrackerDialog.mobile {background: transparent; border: 0 none !important; height: 100% !important; width: 100% !important; left: 0 !important; top: 0 !important; position: absolute; overflow: auto; z-index: 9000 !important; }";
+        //$('<style>') .prop('type', 'text/css') .html(cssData).appendTo('head');
     };
-    //
+    // Android Panel 
+    window.plugin.playerTracker.onPaneChanged = function(pane) {
+        if(pane == 'plugin-player-tracker-nhz') {
+            window.plugin.playerTracker.playerTrackerDialog();
+        } else {
+            $("#playerTrackerDialog").remove();
+        }
+    };
     // Option Dialog
-    //
     window.plugin.playerTracker.playerTrackerDialog = function() {
         var html = $('<div>');
         html.append($('<label>' , {
@@ -114,7 +122,7 @@ function wrapper(plugin_info) {
             for : 'player-tracker-nhz-opt-priod'
         }));
         var select_priod = $($('<select>', {
-            value : 6 ,
+            value : 3 ,
             id : 'player-tracker-nhz-opt-priod'
         }))
         .append($('<option>').val(3).text("3時間"))
@@ -136,42 +144,46 @@ function wrapper(plugin_info) {
         .append($('<option>').val(20).text("20履歴"));
         html.append(select_history);
         html.append($('<p>').text('※COMMのAllを過去にさかのぼって表示すると、過去追跡が可能です'));
-        
-        dialog({
-            html: html,
-            id: 'playerTracker-options',
-            title: 'Player足跡設定',
-            focusCallback: function() {
-               $('#player-tracker-nhz-opt-priod').val(OptionData.priod);
-               $('#player-tracker-nhz-opt-history').val(OptionData.history);
-            },
-            closeCallback:function() {
-                OptionData.priod =$('#player-tracker-nhz-opt-priod').val();
-                OptionData.history =$('#player-tracker-nhz-opt-history').val();
-                window.plugin.playerTracker.saveOption();
-                return true;
-            }
-        });
+
+        //if (window.useAndroidPanes()) {
+        //     $('<div>' , {
+        //         id : 'playerTrackerDialog',
+        //         class : 'mobile'
+        //     }).append(html).appendTo(document.body);
+        //    $('#player-tracker-nhz-opt-priod').val(OptionData.priod);
+        //    $('#player-tracker-nhz-opt-history').val(OptionData.history);
+        //}
+        //else {
+            dialog({
+                html: html,
+                id: 'playerTracker-options',
+                title: 'Player足跡設定',
+                focusCallback: function() {
+                    $('#player-tracker-nhz-opt-priod').val(OptionData.priod);
+                    $('#player-tracker-nhz-opt-history').val(OptionData.history);
+                },
+                closeCallback:function() {
+                    OptionData.priod =$('#player-tracker-nhz-opt-priod').val();
+                    OptionData.history =$('#player-tracker-nhz-opt-history').val();
+                    window.plugin.playerTracker.saveOption();
+                    return true;
+                }
+            });
+        //}
     };
-    
+
     //  オプション値をロード
     window.plugin.playerTracker.loadOption = function () {
         var stream = localStorage.getItem(PLAYER_TRACKER_NHZ_STORAGE_KEY);
-        if (stream === null) {
-            OptionData = {
-                priod : 3,             //初期時間
-                history : 10
-            };
+        var _data = (stream === null) ? {} : JSON.parse(stream);
+        if (!!!_data.priod) {
+            _data.priod = 3;
         }
-        else {
-            OptionData = JSON.parse(stream);
-            if (!!!OptionData.priod) {
-                OptionData.priod = 3;
-            }
-            if (!!!OptionData.history) {
-                OptionData.history = 10;
-            }
+        if (!!!_data.history) {
+            _data.history = 10;
         }
+        OptionData.priod   = parseInt(_data.priod,10);
+        OptionData.history = parseInt(_data.history,10);
     };
     // オプション値を保存
     window.plugin.playerTracker.saveOption = function () {
@@ -672,7 +684,6 @@ function wrapper(plugin_info) {
         addHook('nicknameClicked', window.plugin.playerTracker.onNicknameClicked);
         addHook('search', window.plugin.playerTracker.onSearch);
     };
-
 
     var setup = plugin.playerTracker.setup;
 
