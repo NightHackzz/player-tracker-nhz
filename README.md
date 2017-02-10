@@ -9,8 +9,10 @@
 ## インストール
 [Plugin Download](https://github.com/NightHackzz/player-tracker-nhz/raw/master/player-tracker-ja-nhz.user.js) <br>
 
-あらかじめ、標準の「Plaert tracker」はOFFに設定してください。<br>
-上記「Plugin Download」リンクを選択し、開いた画面で「インストール」ボタンを押してください。<br>
+- あらかじめ、標準の「Plaert tracker」はOFFに設定してください。<br>
+!(fig1.png)
+- 上記「Plugin Download」リンクを選択し、開いた画面で「インストール」ボタンを押してください。<br>
+
 
 
 ## 注意事項
@@ -18,5 +20,7 @@
 不具合のある機能の修正、使えなくなってしまった機能の削除は行う可能性があります。<br>
 本スクリプトの利用にかかわる一切の責任は利用者にあり、翻訳者および製作者・配布元が責任を負うことはありません。<br>
 
-##ライセンス
+## ライセンス
 本スクリプトのライセンスは、[ISC Licence](https://www.isc.org/downloads/software-support-policy/isc-license/)とさせて頂きます。
+
+## 
