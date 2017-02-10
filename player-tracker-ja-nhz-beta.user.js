@@ -101,6 +101,9 @@ function wrapper(plugin_info) {
         window.plugin.playerTracker.zoomListener();
 
         plugin.playerTracker.setupUserSearch();
+        
+		cssData = "#playerTrackerDialog.mobile {background: transparent; border: 0 none !important; height: 100% !important; width: 100% !important; left: 0 !important; top: 0 !important; position: absolute; overflow: auto; z-index: 9000 !important; }";
+        $('<style>') .prop('type', 'text/css') .html(cssData).appendTo('head');
     };
     // Android Panel 
     window.plugin.playerTracker.onPaneChanged = function(pane) {
@@ -110,9 +113,7 @@ function wrapper(plugin_info) {
             $("#playerTrackerDialog").remove();
         }
     };
-    //
     // Option Dialog
-    //
     window.plugin.playerTracker.playerTrackerDialog = function() {
         var html = $('<div>');
         html.append($('<label>' , {
@@ -174,20 +175,12 @@ function wrapper(plugin_info) {
     //  オプション値をロード
     window.plugin.playerTracker.loadOption = function () {
         var stream = localStorage.getItem(PLAYER_TRACKER_NHZ_STORAGE_KEY);
-        if (stream === null) {
-            OptionData = {
-                priod : 3,             //初期時間
-                history : 10
-            };
+        OptionData = (stream === null) ? {} : JSON.parse(stream);
+        if (!!!OptionData.priod) {
+            OptionData.priod = 3;
         }
-        else {
-            OptionData = JSON.parse(stream);
-            if (!!!OptionData.priod) {
-                OptionData.priod = 3;
-            }
-            if (!!!OptionData.history) {
-                OptionData.history = 10;
-            }
+        if (!!!OptionData.history) {
+            OptionData.history = 10;
         }
     };
     // オプション値を保存
