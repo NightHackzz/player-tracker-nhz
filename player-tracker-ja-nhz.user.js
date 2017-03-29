@@ -2,7 +2,7 @@
 // @id             iitc-plugin-player-tracker-nhz@ja
 // @name           IITC-ja Plugin: Player Tracker(nhz)
 // @category       Layer
-// @version        0.11.1.20170329.ja.nhz.0001
+// @version        0.11.1.20170329.ja.nhz.0002
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://github.com/NightHackzz/player-tracker-nhz/raw/master/player-tracker-ja-nhz.user.js
 // @downloadURL    https://github.com/NightHackzz/player-tracker-nhz/raw/master/player-tracker-ja-nhz.user.js
@@ -25,7 +25,7 @@ function wrapper(plugin_info) {
     //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
     //(leaving them in place might break the 'About IITC' page or break update checks)
     plugin_info.buildName = 'iitc-ja-nhz';
-    plugin_info.dateTimeVersion = '20170329.0001';
+    plugin_info.dateTimeVersion = '20170329.0002';
     plugin_info.pluginId = 'player-tracker-ja-nhz';
     //END PLUGIN AUTHORS NOTE
 
@@ -36,7 +36,7 @@ function wrapper(plugin_info) {
     window.PLAYER_TRACKER_MIN_ZOOM = 9;
     window.PLAYER_TRACKER_MIN_OPACITY = 0.3;
     window.PLAYER_TRACKER_LINE_COLOUR_ENL = '#ff0080';
-    window.PLAYER_TRACKER_LINE_COLOUR_RES = '#e67928';
+    window.PLAYER_TRACKER_LINE_COLOUR_RES = '#ffffe0';
 
     var PLAYER_TRACKER_NHZ_STORAGE_KEY = 'player-tracer-nhz-option';
     // オプション値
