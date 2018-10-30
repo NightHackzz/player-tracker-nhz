@@ -2,19 +2,19 @@
 // @id             iitc-plugin-player-tracker-nhz@ja
 // @name           IITC-ja Plugin: Player Tracker(nhz)
 // @category       Layer
-// @version        0.11.1.20170329.ja.nhz.0004
+// @version        0.11.2.20181030.ja.nhz.0001
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://github.com/NightHackzz/player-tracker-nhz/raw/master/player-tracker-ja-nhz.user.js
 // @downloadURL    https://github.com/NightHackzz/player-tracker-nhz/raw/master/player-tracker-ja-nhz.user.js
-// @description    [2017-03-29.0004] PlayerTracker(nhz) トレース色、追跡、履歴時間指定版.
-// @include        https://www.ingress.com/intel*
-// @include        http://www.ingress.com/intel*
-// @match          https://www.ingress.com/intel*
-// @match          http://www.ingress.com/intel*
-// @include        https://www.ingress.com/mission/*
-// @include        http://www.ingress.com/mission/*
-// @match          https://www.ingress.com/mission/*
-// @match          http://www.ingress.com/mission/*
+// @description    [2018-10-30.0001] PlayerTracker(nhz) トレース色、追跡、履歴時間指定版.
+// @include        https://*.ingress.com/intel*
+// @include        http://*.ingress.com/intel*
+// @match          https://*.ingress.com/intel*
+// @match          http://*.ingress.com/intel*
+// @include        https://*.ingress.com/mission/*
+// @include        http://*.ingress.com/mission/*
+// @match          https://*.ingress.com/mission/*
+// @match          http://*.ingress.com/mission/*
 // @grant          none
 // ==/UserScript==
 
@@ -25,7 +25,7 @@ function wrapper(plugin_info) {
     //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
     //(leaving them in place might break the 'About IITC' page or break update checks)
     plugin_info.buildName = 'iitc-ja-nhz';
-    plugin_info.dateTimeVersion = '20170329.0004';
+    plugin_info.dateTimeVersion = '20181030.0001';
     plugin_info.pluginId = 'player-tracker-ja-nhz';
     //END PLUGIN AUTHORS NOTE
 
